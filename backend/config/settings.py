@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     #profiles
     'accounts',
     'tasks',
+    'notes',
 ]
 
 MIDDLEWARE = [

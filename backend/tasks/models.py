@@ -40,3 +40,30 @@ class Task(models.Model):
 
     def __str__(self):
         return self.title
+
+class Note(models.Model):
+
+    task = models.ForeignKey(
+        Task,
+        on_delete=models.CASCADE,
+        related_name="notes"
+    )
+
+    content = models.TextField()
+
+    created_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="notes"
+    )
+
+    created_at = models.DateTimeField(
+        auto_now_add=True
+    )
+
+    updated_at = models.DateTimeField(
+        auto_now=True
+    )
+
+    def __str__(self):
+        return f"Note for {self.task.title}"
