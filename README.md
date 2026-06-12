@@ -152,6 +152,28 @@ OpenAPI Schema:
 
 ---
 
+## Frontend Features
+
+The React frontend provides:
+
+* User Registration
+* User Login
+* JWT Authentication Handling
+* Protected Routes
+* Dashboard with Live Statistics
+* Recent Tasks Overview
+* Task Creation & Management
+* Responsive UI built with Tailwind CSS
+
+### Frontend Tech Stack
+
+* React
+* Vite
+* Tailwind CSS
+* Axios
+* React Router DOM
+
+
 ## Future Enhancements
 
 * React Frontend
