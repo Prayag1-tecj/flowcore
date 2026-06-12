@@ -4,6 +4,9 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 
+import Tasks from "./pages/Tasks";
+import Notes from "./pages/Notes";
+
 import ProtectedRoute from "./routes/ProtectedRoute";
 
 function App() {
@@ -26,6 +29,24 @@ function App() {
           element={
             <ProtectedRoute>
               <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/tasks"
+          element={
+            <ProtectedRoute>
+              <Tasks />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/notes"
+          element={
+            <ProtectedRoute>
+              <Notes />
             </ProtectedRoute>
           }
         />
