@@ -1,0 +1,31 @@
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.viewsets import ModelViewSet
+
+from .models import Task
+from .permissions import IsAdminOrOwner
+from .serializers import TaskSerializer
+
+
+class TaskViewSet(ModelViewSet):
+
+    serializer_class = TaskSerializer
+
+    permission_classes = [
+        IsAuthenticated,
+        IsAdminOrOwner,
+    ]
+
+    def get_queryset(self):
+
+        if self.request.user.role == "ADMIN":
+            return Task.objects.all()
+
+        return Task.objects.filter(
+            created_by=self.request.user
+        )
+
+    def perform_create(self, serializer):
+
+        serializer.save(
+            created_by=self.request.user
+        )
